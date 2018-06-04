@@ -21,13 +21,26 @@ namespace SeleniumTests
 
         [TestMethod]
         [TestCategory("Chrome")]
-        public void TheBingSearchTest()
+        public void LoginLogOffTest()
         {
             driver.Navigate().GoToUrl(appURL + "/");
-            driver.FindElement(By.Id("sb_form_q")).SendKeys("VSTS");
-            driver.FindElement(By.Id("sb_form_go")).Click();
-            driver.FindElement(By.XPath("//ol[@id='b_results']/li/h2/a/strong[3]")).Click();
-            Assert.IsTrue(driver.Title.Contains("VSTS"), "Verified title of the page");
+            driver.FindElement(By.Id("loginLink")).Click();
+            driver.FindElement(By.Id("Email")).SendKeys("flaviotosta7@gmail.com");
+            driver.FindElement(By.Id("Password")).SendKeys("Aa123456$");
+            driver.FindElement(By.Id("Password")).Submit();
+
+            // Verify logged user name
+            var welcomeMessage = driver.FindElement(By.CssSelector("#logoutForm > ul > li:nth-child(1) > a")).Text.Trim();
+
+            Assert.AreEqual(welcomeMessage, "Hello flaviotosta7@gmail.com!");
+
+            // Log Off
+            driver.FindElement(By.CssSelector("#logoutForm > ul > li:nth-child(2) > a")).Click();
+
+            // Verify register button is shown
+            var registerButtons = driver.FindElements(By.CssSelector("#registerLink"));
+
+            Assert.AreEqual(registerButtons.Count, 1);
         }
 
         /// <summary>
@@ -49,14 +62,14 @@ namespace SeleniumTests
         [TestInitialize()]
         public void SetupTest()
         {
-            appURL = "http://www.bing.com/";
+            appURL = "http://localhost:51171";
 
             string browser = "Chrome";
             switch (browser)
             {
                 case "Chrome":
-                    driver = new ChromeDriver(Environment.GetEnvironmentVariable("ChromeWebDriver"));
-                    //driver = new ChromeDriver(@"C:\Selenium");   
+                    // driver = new ChromeDriver(Environment.GetEnvironmentVariable("ChromeWebDriver"));
+                    driver = new ChromeDriver(@"C:\Selenium");   
                     break;
                 case "Firefox":
                     driver = new FirefoxDriver(Environment.GetEnvironmentVariable("GeckoWebDriver"));
