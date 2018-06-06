@@ -9,6 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebAppli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2.Tests", "WebApplication2.Tests\WebApplication2.Tests.csproj", "{940DC75F-0F6C-484C-BA92-ADFCA14BE698}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E0EF5C25-86F1-4D71-AA33-B5D9DD376835}"
+	ProjectSection(SolutionItems) = preProject
+		appspec.yml = appspec.yml
+		CreateWebSite.ps1 = CreateWebSite.ps1
+		StageArtifacts.ps1 = StageArtifacts.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
