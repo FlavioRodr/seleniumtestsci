@@ -62,20 +62,19 @@ namespace SeleniumTests
         [TestInitialize()]
         public void SetupTest()
         {
-            appURL = "http://localhost:51171";
+            appURL = "http://vitsalistics-env.skaz2bsukr.us-east-2.elasticbeanstalk.com/";
 
             string browser = "Chrome";
             switch (browser)
             {
                 case "Chrome":
-                    // driver = new ChromeDriver(Environment.GetEnvironmentVariable("ChromeWebDriver"));
-                    driver = new ChromeDriver(@"C:\Selenium");   
+                    driver = new ChromeDriver();   
                     break;
                 case "Firefox":
-                    driver = new FirefoxDriver(Environment.GetEnvironmentVariable("GeckoWebDriver"));
+                    driver = new FirefoxDriver();
                     break;
                 case "IE":
-                    driver = new InternetExplorerDriver(Environment.GetEnvironmentVariable("IEWebDriver"));
+                    driver = new InternetExplorerDriver();
                     break;
                 default:
                     driver = new ChromeDriver();
