@@ -68,16 +68,16 @@ namespace SeleniumTests
             switch (browser)
             {
                 case "Chrome":
-                    driver = new ChromeDriver();   
+                    driver = new ChromeDriver(Environment.GetEnvironmentVariable("ChromeWebDriver"));
                     break;
                 case "Firefox":
-                    driver = new FirefoxDriver();
+                    driver = new FirefoxDriver(Environment.GetEnvironmentVariable("GeckoWebDriver"));
                     break;
                 case "IE":
-                    driver = new InternetExplorerDriver();
+                    driver = new InternetExplorerDriver(Environment.GetEnvironmentVariable("IEWebDriver"));
                     break;
                 default:
-                    driver = new ChromeDriver();
+                    driver = new ChromeDriver(Environment.GetEnvironmentVariable("ChromeWebDriver"));
                     break;
             }
         }
