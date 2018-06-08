@@ -40,63 +40,8 @@ namespace SeleniumTests
             // Verify register button is shown
             var registerButtons = driver.FindElements(By.CssSelector("#registerLink"));
 
-            Assert.AreEqual(registerButtons.Count, 0);
+            Assert.AreEqual(registerButtons.Count, 1);
         }
-
-        
-        
-        
-        [TestMethod]
-        [TestCategory("Firefox")]
-        public void FirefoxLoginLogOffTest()
-        {
-            driver.Navigate().GoToUrl(appURL + "/");
-            driver.FindElement(By.Id("loginLink")).Click();
-            driver.FindElement(By.Id("Email")).SendKeys("flaviotosta7@gmail.com");
-            driver.FindElement(By.Id("Password")).SendKeys("Aa123456$");
-            driver.FindElement(By.Id("Password")).Submit();
-
-            // Verify logged user name
-            var welcomeMessage = driver.FindElement(By.CssSelector("#logoutForm > ul > li:nth-child(1) > a")).Text.Trim();
-
-            Assert.AreEqual(welcomeMessage, "Hello flaviotosta7@gmail.com!");
-
-            // Log Off
-            driver.FindElement(By.CssSelector("#logoutForm > ul > li:nth-child(2) > a")).Click();
-
-            // Verify register button is shown
-            var registerButtons = driver.FindElements(By.CssSelector("#registerLink"));
-
-            Assert.AreEqual(registerButtons.Count, 1);
-        }        
-       
-        [TestMethod]
-        [TestCategory("IE")]
-        public void IELoginLogOffTest()
-        {
-            driver.Navigate().GoToUrl(appURL + "/");
-            driver.FindElement(By.Id("loginLink")).Click();
-            driver.FindElement(By.Id("Email")).SendKeys("flaviotosta7@gmail.com");
-            driver.FindElement(By.Id("Password")).SendKeys("Aa123456$");
-            driver.FindElement(By.Id("Password")).Submit();
-
-            // Verify logged user name
-            var welcomeMessage = driver.FindElement(By.CssSelector("#logoutForm > ul > li:nth-child(1) > a")).Text.Trim();
-
-            Assert.AreEqual(welcomeMessage, "Hello flaviotosta7@gmail.com!");
-
-            // Log Off
-            driver.FindElement(By.CssSelector("#logoutForm > ul > li:nth-child(2) > a")).Click();
-
-            // Verify register button is shown
-            var registerButtons = driver.FindElements(By.CssSelector("#registerLink"));
-
-            Assert.AreEqual(registerButtons.Count, 1);
-        }    
-        
-        
-        
-        
         
         /// <summary>
         ///Gets or sets the test context which provides
