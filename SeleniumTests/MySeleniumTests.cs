@@ -40,7 +40,7 @@ namespace SeleniumTests
             // Verify register button is shown
             var registerButtons = driver.FindElements(By.CssSelector("#registerLink"));
 
-            Assert.AreNotqual(registerButtons.Count, 1);
+            Assert.AreEqual(registerButtons.Count, 0);
         }
 
         
