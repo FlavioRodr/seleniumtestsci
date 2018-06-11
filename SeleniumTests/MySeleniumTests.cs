@@ -21,7 +21,7 @@ namespace SeleniumTests
 
         [TestMethod]
         [TestCategory("Chrome")]
-        public void LoginLogOffTest()
+        public void ChomeLoginLogOffTest()
         {
             driver.Navigate().GoToUrl(appURL + "/");
             driver.FindElement(By.Id("loginLink")).Click();
@@ -42,7 +42,7 @@ namespace SeleniumTests
 
             Assert.AreEqual(registerButtons.Count, 1);
         }
-
+        
         /// <summary>
         ///Gets or sets the test context which provides
         ///information about and functionality for the current test run.
