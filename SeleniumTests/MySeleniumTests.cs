@@ -25,14 +25,14 @@ namespace SeleniumTests
         {
             driver.Navigate().GoToUrl(appURL + "/");
             driver.FindElement(By.Id("loginLink")).Click();
-            driver.FindElement(By.Id("Email")).SendKeys("flaviotosta7@gmail.com");
+            driver.FindElement(By.Id("Email")).SendKeys("flavio_tosta@qatbrasil.com");
             driver.FindElement(By.Id("Password")).SendKeys("Aa123456$");
             driver.FindElement(By.Id("Password")).Submit();
 
             // Verify logged user name
             var welcomeMessage = driver.FindElement(By.CssSelector("#logoutForm > ul > li:nth-child(1) > a")).Text.Trim();
 
-            Assert.AreEqual(welcomeMessage, "Hello flaviotosta7@gmail.com!");
+            Assert.AreEqual(welcomeMessage, "Hello flavio_tosta@qatbrasil!");
 
             // Log Off
             driver.FindElement(By.CssSelector("#logoutForm > ul > li:nth-child(2) > a")).Click();
