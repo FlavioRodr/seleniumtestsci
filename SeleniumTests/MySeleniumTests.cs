@@ -62,7 +62,7 @@ namespace SeleniumTests
         [TestInitialize()]
         public void SetupTest()
         {
-            appURL = "http://vitsalistics-env.skaz2bsukr.us-east-2.elasticbeanstalk.com/";
+            appURL = "http://webapp-env.rspfiabgfh.sa-east-1.elasticbeanstalk.com/";
 
             string browser = "Chrome";
             switch (browser)
