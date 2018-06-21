@@ -37,7 +37,7 @@ namespace SeleniumTests
             // Verify logged user name
             var welcomeMessage = driver.FindElement(By.CssSelector("#logoutForm > ul > li:nth-child(1) > a")).Text.Trim().ToUpper();
 
-            Assert.AreEqual(welcomeMessage, "Hello flavio_tosta@qatbrasil.com!".ToUpper());
+            Assert.AreNotEqual(welcomeMessage, "Hello flavio_tosta@qatbrasil.com!".ToUpper());
 
             // Log Off
             driver.FindElement(By.CssSelector("#logoutForm > ul > li:nth-child(2) > a")).Click();
