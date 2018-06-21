@@ -24,12 +24,10 @@ namespace SeleniumTests
         [TestCategory("Chrome")]
         public void ChomeLoginLogOffTest()
         {
-            Console.WriteLine("appURL: " + appURL);
             driver.Navigate().GoToUrl(appURL + "/");
 
             var wait = new WebDriverWait(driver, new TimeSpan(0, 0, 0, 0, 3000));
             wait.Until(x => driver.FindElements(By.Id("loginLink")).Count > 0);
-            Console.WriteLine("appURL: " + appURL);
 
             driver.FindElement(By.Id("loginLink")).Click();
             driver.FindElement(By.Id("Email")).SendKeys("flavio_tosta@qatbrasil.com");
