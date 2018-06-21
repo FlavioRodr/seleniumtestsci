@@ -30,9 +30,9 @@ namespace SeleniumTests
             driver.FindElement(By.Id("Password")).Submit();
 
             // Verify logged user name
-            var welcomeMessage = driver.FindElement(By.CssSelector("#logoutForm > ul > li:nth-child(1) > a")).Text.Trim();
+            var welcomeMessage = driver.FindElement(By.CssSelector("#logoutForm > ul > li:nth-child(1) > a")).Text.Trim().ToUpper();
 
-            Assert.AreEqual(welcomeMessage, "Hello flavio_tosta@qatbrasil!");
+            Assert.AreEqual(welcomeMessage, "Hello flavio_tosta@qatbrasil.com!".ToUpper());
 
             // Log Off
             driver.FindElement(By.CssSelector("#logoutForm > ul > li:nth-child(2) > a")).Click();
@@ -62,7 +62,8 @@ namespace SeleniumTests
         [TestInitialize()]
         public void SetupTest()
         {
-            appURL = "http://webapp-env.rspfiabgfh.sa-east-1.elasticbeanstalk.com/";
+            //  appURL = "http://webapp-env.rspfiabgfh.sa-east-1.elasticbeanstalk.com/";         
+            appURL = "http://localhost:51171";
 
             string browser = "Chrome";
             switch (browser)
