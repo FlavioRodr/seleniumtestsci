@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;           
-using OpenQA.Selenium.Firefox;   
-using OpenQA.Selenium.Chrome;    
+using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Support.UI;
 
@@ -47,7 +47,7 @@ namespace SeleniumTests
 
             Assert.AreEqual(registerButtons.Count, 1);
         }
-        
+
         /// <summary>
         ///Gets or sets the test context which provides
         ///information about and functionality for the current test run.
@@ -67,13 +67,18 @@ namespace SeleniumTests
         [TestInitialize()]
         public void SetupTest()
         {
-            appURL = "http://webapp-env.rspfiabgfh.sa-east-1.elasticbeanstalk.com";         
-          
+            appURL = "localhost:51171";
+
             string browser = "Chrome";
             switch (browser)
             {
                 case "Chrome":
-                    driver = new ChromeDriver(Environment.GetEnvironmentVariable("ChromeWebDriver"));
+
+                    #if DEBUG
+                        driver = new ChromeDriver();
+                    #elif RELEASE
+	                    driver = new ChromeDriver(Environment.GetEnvironmentVariable("ChromeWebDriver")); 
+                    #endif
                     break;
                 case "Firefox":
                     driver = new FirefoxDriver(Environment.GetEnvironmentVariable("GeckoWebDriver"));

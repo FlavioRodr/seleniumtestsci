@@ -1,1 +1,0 @@
-New-WebApplication -Site "Default Web Site" -Name WebApplication2 -PhysicalPath c:\inetpub\wwwroot\WebApplication2 -Force
